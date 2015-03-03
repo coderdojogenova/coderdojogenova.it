@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		{% load bootstrap3 %}
+
+		<script src="{% static 'jquery/jquery-2.1.0.min.js' %}"></script>
+
+        {% bootstrap_css %}
+		{% bootstrap_javascript %}
+
+		<link rel="shortcut icon" href="{% static 'misc/favicon.ico' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'misc/css/style.css' %}" />
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,700&#038;subset=latin,latin-ext" type='text/css' media='all' />
+
+		{% block additional_head %}{% endblock %}
+
+		<title>{% block title %}{% endblock %}</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<span class="navbar-brand">Dojo</span>
+						</div>
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li {% block homeactive %}{% endblock %}>
+									<a href="\"><span class="glyphicon glyphicon-home"></span> Home</a>
+								</li>
+
+
+						</div><!--/.navbar-collapse -->
+					</div>
+				</nav>
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div id="page-footer">
+				<div class="container">
+					<footer>
+						<div class="pull-right">
+							<small>2015 - <a href="https://github.com/coderdojogenova/coderdojogenova.it">github</a> - {{ VERSION }}</small>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
